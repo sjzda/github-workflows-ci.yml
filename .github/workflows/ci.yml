@@ -1,0 +1,17 @@
+name: Run My Script
+on: [push]  # 触发条件：代码推送到仓库时自动运行
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest  # 运行环境
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # 拉取仓库代码
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # 指定 Python 版本
+
+      - name: Run script
+        run: python hello.py  # 执行你的脚本文件
